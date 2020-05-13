@@ -1,6 +1,6 @@
 {
   "name": "jellyfin",
-  "version": "nightly",
+  "version": "latest",
   "slug": "jellyfin",
   "legacy": false,
   "maintenance": {
@@ -39,5 +39,5 @@
     "HomePath": "str",
     "TZ": "str?"
   },
-  "image": "jellyfin/jellyfin:nightly"
+  "image": "linuxserver/jellyfin:nightly"
 }
