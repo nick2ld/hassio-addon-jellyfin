@@ -1,4 +1,4 @@
-# Hassio Add-ons by petersendev: Jellyfin
+# Hassio Add-on
 
 ## About
 
