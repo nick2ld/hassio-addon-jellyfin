@@ -1,7 +1,7 @@
 {
-  "name": "jellyfin",
+  "name": "jellyfin latest",
   "version": "latest",
-  "slug": "jellyfin",
+  "slug": "jellyfinlatest",
   "legacy": false,
   "maintenance": {
     "github_release": "https://github.com/nick2ld/hassio-addon-jellyfin",
