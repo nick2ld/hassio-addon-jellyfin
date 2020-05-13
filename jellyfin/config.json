@@ -1,6 +1,6 @@
 {
   "name": "jellyfin",
-  "version": "latest",
+  "version": "nightly",
   "slug": "jellyfin",
   "legacy": false,
   "maintenance": {
