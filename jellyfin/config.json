@@ -1,6 +1,6 @@
 {
   "name": "jellyfin latest",
-  "version": "dev",
+  "version": "10.5.5",
   "slug": "jellyfinlatest",
   "legacy": false,
   "maintenance": {
