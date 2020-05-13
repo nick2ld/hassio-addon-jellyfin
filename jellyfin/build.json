@@ -1,7 +1,7 @@
 {
     "build_from_template": {
         "image": "jellyfin/jellyfin",
-        "version": "latest"
+        "version": "10.5.5"
     },
     "build_from": {
         "armhf": "jellyfin/jellyfin:10.5.5",

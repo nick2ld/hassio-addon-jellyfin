@@ -4,7 +4,8 @@
   "slug": "jellyfinlatest",
   "legacy": false,
   "maintenance": {
-    "github_release": "https://github.com/nick2ld/hassio-addon-jellyfin"
+    "github_release": "https://github.com/nick2ld/hassio-addon-jellyfin",
+    "version_regex": "^[\-\w{}]+/[\-\w{}]+:[\-\w{}]+$"
   },
   "description": "A Free Software Media System that puts you in control of managing and streaming your media.",
   "url": "https://github.com/nick2ld/hassio-addon-jellyfin",
