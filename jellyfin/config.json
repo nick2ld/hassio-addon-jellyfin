@@ -39,5 +39,5 @@
     "HomePath": "str",
     "TZ": "str?"
   },
-  "image": "linuxserver/jellyfin:latest"
+  "image": "linuxserver/jellyfin:{arch}-latest"
 }
