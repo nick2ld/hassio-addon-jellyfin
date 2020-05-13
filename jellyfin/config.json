@@ -39,5 +39,5 @@
     "HomePath": "str",
     "TZ": "str?"
   },
-  "image": "petersendev/hassio-jellyfin-{arch}"
+  "image": "jellyfin/jellyfin:{arch}"
 }
