@@ -4,9 +4,9 @@
         "version": "latest"
     },
     "build_from": {
-        "armhf": "jellyfin/jellyfin:latest",
-        "aarch64": "jellyfin/jellyfin:latest",
-        "amd64": "jellyfin/jellyfin:latest"
+        "armhf": "jellyfin/jellyfin:10.5.5",
+        "aarch64": "jellyfin/jellyfin:10.5.5",
+        "amd64": "jellyfin/jellyfin:10.5.5"
     },
     "squash": false,
     "args": {}

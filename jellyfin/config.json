@@ -1,6 +1,6 @@
 {
   "name": "jellyfin latest",
-  "version": "latest",
+  "version": "dev",
   "slug": "jellyfinlatest",
   "legacy": false,
   "maintenance": {
@@ -38,5 +38,5 @@
     "HomePath": "str",
     "TZ": "str?"
   },
-  "image": "jellyfin/jellyfin:latest"
+  "image": "jellyfin/jellyfin:10.5.5"
 }
