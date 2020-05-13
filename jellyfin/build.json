@@ -1,12 +1,12 @@
 {
     "build_from_template": {
         "image": "linuxserver/jellyfin",
-        "version": "nightly"
+        "version": "latest"
     },
     "build_from": {
-        "armhf": "linuxserver/jellyfin:arm32v7-nightly",
-        "aarch64": "linuxserver/jellyfin:arm64v8-nightly",
-        "amd64": "linuxserver/jellyfin:amd64-nightly"
+        "armhf": "linuxserver/jellyfin:arm32v7-latest",
+        "aarch64": "linuxserver/jellyfin:arm64v8-latest",
+        "amd64": "linuxserver/jellyfin:amd64-latest"
     },
     "squash": false,
     "args": {}
