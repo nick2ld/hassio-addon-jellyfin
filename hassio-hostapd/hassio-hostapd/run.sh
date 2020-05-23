@@ -60,8 +60,5 @@ echo "broadcast $BROADCAST"$'\n' >> /etc/network/interfaces
 ifdown wlan0
 ifup wlan0
 
-echo "Starting DNSMASQ daemon ..."
-service dnsmasq start
-
 echo "Starting HostAP daemon ..."
 hostapd -d /hostapd.conf & wait ${!}
