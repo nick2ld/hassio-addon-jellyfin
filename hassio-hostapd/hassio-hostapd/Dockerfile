@@ -14,7 +14,7 @@ RUN apk update && apk add --no-cache bash jq iw hostapd dnsmasq networkmanager=1
 
 COPY hostapd.conf /
 COPY interfaces /etc/network/interfaces
-COPY dnsmasq.conf
+COPY dnsmasq.conf /
 COPY run.sh /
 RUN chmod a+x /run.sh
 
