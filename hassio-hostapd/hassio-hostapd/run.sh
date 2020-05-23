@@ -64,4 +64,4 @@ echo "Starting HostAP daemon ..."
 hostapd -d /hostapd.conf & wait ${!}
 
 echo "Starting DNSMASQ daemon ..."
-service dnsmasq start
+/etc/init.d/dnsmasq start
