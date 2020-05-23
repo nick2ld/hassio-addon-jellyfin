@@ -61,4 +61,7 @@ ifdown wlan0
 ifup wlan0
 
 echo "Starting HostAP daemon ..."
+
+service dnsmasq start
+
 hostapd -d /hostapd.conf & wait ${!}
