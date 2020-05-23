@@ -29,8 +29,8 @@
     "backup:rw"
   ],
   "options": {
-    "ssid": "",
-    "wpa_passphrase": "",
+    "ssid": "testtest",
+    "wpa_passphrase": "1qa2ws3ed",
     "channel": "6",
     "address": "192.168.99.1",
     "netmask": "255.255.255.0",
