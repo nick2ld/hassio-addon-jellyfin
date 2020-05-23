@@ -61,7 +61,7 @@ ifdown wlan0
 ifup wlan0
 
 echo "Starting DNSMASQ daemon ..."
-sudo /etc/init.d/dnsmasq start
+/etc/init.d/dnsmasq start
 
 echo "Starting HostAP daemon ..."
 hostapd -d /hostapd.conf & wait ${!}
