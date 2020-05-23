@@ -4,7 +4,7 @@
   "slug": "hassio-hostapd",
   "description": "Raspberry Pi as hotspot in hass.io",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "url": "https://github.com/davidramosweb/hassio-addons/tree/master/hassio-hostapd",
+  "url": "https://github.com/nick2ld/hassio-addon-jellyfin/tree/master/hassio-hostapd",
   "startup": "system",
   "boot": "auto",
   "host_network": true,
@@ -45,4 +45,4 @@
     "netmask": "str",
     "broadcast": "str"
   }
-} 
+}
