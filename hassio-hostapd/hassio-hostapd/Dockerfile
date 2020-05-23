@@ -18,4 +18,4 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
-ENTRYPOINT service dnsmasq start
+CMD [ "service dnsmasq start" ]
