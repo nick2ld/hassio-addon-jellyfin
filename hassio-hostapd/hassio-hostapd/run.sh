@@ -44,6 +44,7 @@ for i in $(bashio::config 'statics'); do
 	if ! bashio::config.has_value "statics[${i}].ip"; then
 		stip=$(bashio::config "statics[${i}].ip")
 	fi
+		echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
 
