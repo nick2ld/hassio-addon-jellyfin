@@ -40,9 +40,11 @@ done
 for i in $(bashio::config 'statics|keys'); do
 	if ! bashio::config.has_value "statics[${i}].mac"; then
 		stmac=$(bashio::config "statics[${i}].mac")
+		echo "мак - $stmac"
 	fi
 	if ! bashio::config.has_value "statics[${i}].ip"; then
 		stip=$(bashio::config "statics[${i}].ip")
+		echo "ip - $stmac"
 	fi
 		echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
