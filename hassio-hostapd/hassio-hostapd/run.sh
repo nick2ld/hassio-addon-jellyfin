@@ -51,6 +51,8 @@ do
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
 
+exit 1
+
 if [[ -n $error ]]; then
     exit 1
 fi
