@@ -34,7 +34,9 @@
     "channel": "6",
     "address": "192.168.99.1",
     "netmask": "255.255.255.0",
-    "broadcast": "192.168.99.254"
+    "broadcast": "192.168.99.254",
+    "statics":[]
+
 
   },
   "schema": {
@@ -43,6 +45,7 @@
     "channel": "int",
     "address": "str",
     "netmask": "str",
-    "broadcast": "str"
+    "broadcast": "str",
+    "statics": [{ "mac": "str", "ip": "str" }]
   }
 }

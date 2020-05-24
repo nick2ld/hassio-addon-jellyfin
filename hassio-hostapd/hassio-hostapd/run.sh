@@ -35,6 +35,16 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
+for static in $(bashio::config 'static|keys'); do
+	if ! bashio::config.has_value "statics[${static}].mac"; then
+		stmac=$(bashio::config "peers[${peer}].mac")
+	fi
+	if ! bashio::config.has_value "statics[${static}].ip"; then
+		stip=$(bashio::config "peers[${peer}].ip")
+	fi
+		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
+done
+
 if [[ -n $error ]]; then
     exit 1
 fi
