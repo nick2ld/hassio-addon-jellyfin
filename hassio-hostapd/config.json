@@ -45,6 +45,6 @@
     "address": "str",
     "netmask": "str",
     "broadcast": "str",
-    "statics": [{ "mac": "str", "ip": "str" }]
+    "statics": [{ "mac": "str?", "ip": "str?" }]
   }
 }
