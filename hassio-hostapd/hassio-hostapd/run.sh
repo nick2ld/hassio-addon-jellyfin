@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bashio
 
 # SIGTERM-handler this funciton will be executed when the container receives the SIGTERM signal (when stopping)
 term_handler(){
@@ -19,12 +19,12 @@ nmcli dev set wlan0 managed no
 
 CONFIG_PATH=/data/options.json
 
-SSID=$(jq --raw-output ".ssid" $CONFIG_PATH)
-WPA_PASSPHRASE=$(jq --raw-output ".wpa_passphrase" $CONFIG_PATH)
-CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
-ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
-NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
-BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
+SSID=$(bashio::config 'ssid')
+WPA_PASSPHRASE=$(bashio::config 'wpa_passphrase')
+CHANNEL=$(bashio::config 'channel')
+ADDRESS=$(bashio::config 'address')
+NETMASK=$(bashio::config 'netmask')
+BROADCAST=$(bashio::config 'broadcast')
 declare stmac
 declare stip
 
