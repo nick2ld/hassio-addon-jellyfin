@@ -47,9 +47,9 @@ for i in $(bashio::config 'statics'); do
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
 
-if [[ -n $error ]]; then
-    exit 1
-fi
+#if [[ -n $error ]]; then
+#    exit 1
+#fi
 
 # Setup hostapd.conf
 echo "Setup hostapd ..."
