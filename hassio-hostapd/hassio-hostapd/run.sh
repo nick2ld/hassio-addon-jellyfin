@@ -42,9 +42,9 @@ done
 
 for i in ${STADD[*]}
 do
-		stmac=$(jq --raw-output "statics[${i}].mac" $STADD[i])
+		stmac=$(jq --raw-output ".mac" $STADD[i])
 		echo "мак - $stmac"
-		stip=$(jq --raw-output "statics[${i}].ip" $STADD[i])
+		stip=$(jq --raw-output ".ip" $STADD[i])
 		echo "ip - $stmac"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
