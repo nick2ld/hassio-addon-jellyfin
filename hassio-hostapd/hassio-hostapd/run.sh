@@ -25,6 +25,8 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
+STADD=$(jq --raw-output ".statics" $CONFIG_PATH)
+echo "тест $STADD"
 declare stmac
 declare stip
 stmac='1'
@@ -38,7 +40,7 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for i in $(jq --raw-output "statics[*]" $CONFIG_PATH); do
+for i in ${#STADD[*]}; do
 		stmac=$(jq --raw-output "statics[${i}].mac" $CONFIG_PATH)
 		echo "мак - $stmac"
 		stip=$(jq --raw-output "statics[${i}].ip" $CONFIG_PATH)
