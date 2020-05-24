@@ -25,8 +25,8 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
-STADDKOL=$(jq --raw-output ".statics | length" $CONFIG_PATH)
-STADD=$(jq --raw-output ".statics" $CONFIG_PATH)
+STADD='"statics:"' + $(jq --raw-output ".statics" $CONFIG_PATH)
+STADDKOL=$(echo "$STADD" | jq ". | length" $CONFIG_PATH)
 echo "тест $STADDKOL"
 echo "тест $STADD"
 declare stmac
