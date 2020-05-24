@@ -26,7 +26,7 @@ ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
 STADDKOL=$(jq --raw-output ".statics | length" $CONFIG_PATH)
-STADD=$(jq --raw-output ".statics" $CONFIG_PATH)
+STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
 echo "тест $STADD"
 declare stmac
 declare stip
