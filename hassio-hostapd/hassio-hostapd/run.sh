@@ -1,4 +1,4 @@
-#!/usr/bin/env bashio
+#!/bin/bash
 
 # SIGTERM-handler this funciton will be executed when the container receives the SIGTERM signal (when stopping)
 term_handler(){
@@ -19,12 +19,12 @@ nmcli dev set wlan0 managed no
 
 CONFIG_PATH=/data/options.json
 
-SSID=$(bashio::config 'ssid')
-WPA_PASSPHRASE=$(bashio::config 'wpa_passphrase')
-CHANNEL=$(bashio::config 'channel')
-ADDRESS=$(bashio::config 'address')
-NETMASK=$(bashio::config 'netmask')
-BROADCAST=$(bashio::config 'broadcast')
+SSID=$(jq --raw-output ".ssid" $CONFIG_PATH)
+WPA_PASSPHRASE=$(jq --raw-output ".wpa_passphrase" $CONFIG_PATH)
+CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
+ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
+NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
+BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
 declare stmac
 declare stip
 stmac='1'
@@ -38,13 +38,10 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for i in $(bashio::config 'statics|keys'); do
-	if ! bashio::config.has_value "statics[${i}].mac"; then
-		stmac=$(bashio::config "statics[${i}].mac")
+for i in $(jq --raw-output "statics[@]" $CONFIG_PATH); do
+		stmac=$(jq --raw-output "statics[${i}].mac" $CONFIG_PATH)
 		echo "мак - $stmac"
-	fi
-	if ! bashio::config.has_value "statics[${i}].ip"; then
-		stip=$(bashio::config "statics[${i}].ip")
+		stip=$(jq --raw-output "statics[${i}].ip" $CONFIG_PATH)
 		echo "ip - $stmac"
 	fi
 		echo "Add static IP $stip for $stmac..."
