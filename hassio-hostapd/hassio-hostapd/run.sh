@@ -41,7 +41,7 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for i in ${STADD[*]}
+for (i=0; i=$STADDKOL; i++)
 do
 		stmac=$(jq --raw-output ".statics[$i].mac" $CONFIG_PATH)
 		echo "mac - $stmac"
