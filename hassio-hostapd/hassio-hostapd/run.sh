@@ -43,8 +43,7 @@ for i in $(jq --raw-output "statics[@]" $CONFIG_PATH); do
 		echo "мак - $stmac"
 		stip=$(jq --raw-output "statics[${i}].ip" $CONFIG_PATH)
 		echo "ip - $stmac"
-	fi
-		echo "Add static IP $stip for $stmac..."
+	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
 
