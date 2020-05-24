@@ -27,7 +27,8 @@ NETMASK=$(bashio::config 'netmask')
 BROADCAST=$(bashio::config 'broadcast')
 declare stmac
 declare stip
-
+stmac='1'
+stip='1'
 # Enforces required env variables
 required_vars=(SSID WPA_PASSPHRASE CHANNEL ADDRESS NETMASK BROADCAST)
 for required_var in "${required_vars[@]}"; do
