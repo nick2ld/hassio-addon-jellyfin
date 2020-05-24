@@ -41,11 +41,11 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for i in ${!(jq --raw-output ".statics[*]" $CONFIG_PATH)}
+for i in ${!STADD}
 do
-		stmac=$(jq --raw-output ".statics[$i].mac")
+		stmac="$(echo "$STADD" | jq '.mac')"
 		echo "mac - $stmac"
-		stip=$(jq --raw-output ".statics[$i].ip" $CONFIG_PATH)
+		stip=$(jq --raw-output "[$i].ip" $CONFIG_PATH)
 		echo "ip - $stmac"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
