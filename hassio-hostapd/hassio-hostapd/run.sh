@@ -41,9 +41,9 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for (i=0; i=$STADDKOL; i++)
+for i in ${!(jq --raw-output ".statics[*]" $CONFIG_PATH)}
 do
-		stmac=$(jq --raw-output ".statics[$i].mac" $CONFIG_PATH)
+		stmac=$(jq --raw-output ".statics[$i].mac")
 		echo "mac - $stmac"
 		stip=$(jq --raw-output ".statics[$i].ip" $CONFIG_PATH)
 		echo "ip - $stmac"
