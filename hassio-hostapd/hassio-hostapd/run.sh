@@ -42,9 +42,9 @@ done
 
 for i in ${STADD[*]}
 do
-		stmac=$STADD[i]
+		stmac=${STADD[$i]}
 		echo "мак - $stmac"
-		stip=$STADD[i]
+		stip=${STADD[$i]}
 		echo "ip - $stmac"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
