@@ -25,7 +25,7 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
-STADDKOL=$(jq --raw-output ".statics[] | length" $CONFIG_PATH)
+STADDKOL=$(jq --raw-output ".statics | length" $CONFIG_PATH)
 STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
 echo "тест $STADDKOL"
 echo "тест $STADD"
@@ -47,7 +47,7 @@ do
 		stmac="$(echo "$STADD" | jq '.mac')"
 		echo "mac - $stmac"
 		stip="$(echo "$STADD" | jq '.ip')"
-		echo "ip - $stmac"
+		echo "ip - $stip"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
