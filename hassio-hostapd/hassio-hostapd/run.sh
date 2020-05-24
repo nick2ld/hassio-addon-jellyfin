@@ -27,6 +27,7 @@ NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
 STADDKOL=$(jq --raw-output ".statics[] | length" $CONFIG_PATH)
 STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
+echo "тест $STADDKOL"
 echo "тест $STADD"
 declare stmac
 declare stip
@@ -41,7 +42,7 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for (i; i<=$STADDKOL; i++)
+for ((i; i<=$STADDKOL; i++))
 do
 		stmac="$(echo "$STADD" | jq '.mac')"
 		echo "mac - $stmac"
