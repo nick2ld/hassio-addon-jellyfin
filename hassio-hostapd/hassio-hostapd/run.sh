@@ -35,7 +35,7 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
-for i in $(bashio::config 'statics[@]'); do
+for i in $(bashio::config 'statics|keys'); do
 	if ! bashio::config.has_value "statics[${i}].mac"; then
 		stmac=$(bashio::config "statics[${i}].mac")
 	fi
