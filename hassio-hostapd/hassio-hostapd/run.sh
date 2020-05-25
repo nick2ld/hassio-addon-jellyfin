@@ -47,11 +47,11 @@ if [[ -n $error ]]; then
 fi
 
 jq -c '.statics[]' $CONFIG_PATH | while read i; do
-	  stmac="$(echo "$i" | jq '.mac')"
-		stmac="$(echo "$stmac" | cut -c 2-)"
-		stmac="$(echo "$stmac" | cut -c 2- | rev)"
+	  stmac=$(echo "$i" | jq '.mac')
+#		stmac=$(echo "${stmac:1:${#stmac}-2}")
 		echo "mac - $stmac"
-		stip="$(echo "$i" | jq '.ip')"
+		stip=$(echo "$i" | jq '.ip')
+#		stip=$(echo "${stip:1:${#stip}-2}")
 		echo "ip - $stip"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
