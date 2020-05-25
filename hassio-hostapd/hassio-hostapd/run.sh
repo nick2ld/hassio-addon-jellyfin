@@ -47,7 +47,7 @@ if [[ -n $error ]]; then
 fi
 
 jq -c '.statics[]' $CONFIG_PATH | while read i; do
-	  stmac="$(echo "$i" | jq '.mac')"
+	  stmac="$(echo "$i" | jq '.mac' | cut -c 2- | cut -c 2- | rev)"
 		echo "mac - $stmac"
 		stip="$(echo "$i" | jq '.ip')"
 		echo "ip - $stip"
