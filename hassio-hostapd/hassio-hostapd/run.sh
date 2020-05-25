@@ -25,14 +25,8 @@ CHANNEL=$(jq --raw-output ".channel" $CONFIG_PATH)
 ADDRESS=$(jq --raw-output ".address" $CONFIG_PATH)
 NETMASK=$(jq --raw-output ".netmask" $CONFIG_PATH)
 BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
-STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
-#STADDKOL=$(echo "$STADD" | jq '$STADD' | length)
-#echo "тест $STADDKOL"
-#echo "$STADD"
-#declare stmac
-#declare stip
-#stmac='1'
-#stip='1'
+#STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
+
 # Enforces required env variables
 required_vars=(SSID WPA_PASSPHRASE CHANNEL ADDRESS NETMASK BROADCAST)
 for required_var in "${required_vars[@]}"; do
@@ -46,16 +40,16 @@ if [[ -n $error ]]; then
     exit 1
 fi
 
-jq -c '.statics[]' $CONFIG_PATH | while read i; do
-	  stmac=$(echo "$i" | jq '.mac')
-		stmac=$(echo "${stmac:1:${#stmac}-2}")
-		echo "mac - $stmac"
-		stip=$(echo "$i" | jq '.ip')
-		stip=$(echo "${stip:1:${#stip}-2}")
-		echo "ip - $stip"
-	  echo "Add static IP $stip for $stmac..."
-		echo "dhcp-host=$stmac,$stip,infinite"$'\n' >> /etc/dnsmasq.conf
-done
+# jq -c '.statics[]' $CONFIG_PATH | while read i; do
+# 	  stmac=$(echo "$i" | jq '.mac')
+# 		stmac=$(echo "${stmac:1:${#stmac}-2}")
+# 		echo "mac - $stmac"
+# 		stip=$(echo "$i" | jq '.ip')
+# 		stip=$(echo "${stip:1:${#stip}-2}")
+# 		echo "ip - $stip"
+# 	  echo "Add static IP $stip for $stmac..."
+# 		echo "dhcp-host=$stmac,$stip,infinite"$'\n' >> /etc/dnsmasq.conf
+# done
 
 # Setup hostapd.conf
 echo "Setup hostapd ..."
@@ -81,4 +75,4 @@ ifup wlan0
 echo "Starting HostAP daemon ..."
 
 hostapd -d /hostapd.conf & wait ${!}
-dnsmasq
+#dnsmasq
