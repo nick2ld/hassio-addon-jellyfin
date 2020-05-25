@@ -43,7 +43,7 @@ for required_var in "${required_vars[@]}"; do
 done
 
 
-jq -c $STADD | while read i; do
+jq -c '.[]' $STADD | while read i; do
 	  stmac="$(echo "$i" | jq '.mac')"
 		echo "mac - $stmac"
 		stip="$(echo "$i" | jq '[$i].ip')"
