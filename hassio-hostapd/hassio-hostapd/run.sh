@@ -46,7 +46,7 @@ done
 jq -c '.statics[]' $CONFIG_PATH | while read i; do
 	  stmac="$(echo "$i" | jq '.mac')"
 		echo "mac - $stmac"
-		stip="$(echo "$i" | jq '[$i].ip')"
+		stip="$(echo "$i" | jq '.ip')"
 		echo "ip - $stip"
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
