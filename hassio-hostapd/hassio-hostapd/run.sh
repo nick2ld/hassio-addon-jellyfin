@@ -28,11 +28,11 @@ BROADCAST=$(jq --raw-output ".broadcast" $CONFIG_PATH)
 STADD=$(jq --raw-output ".statics[]" $CONFIG_PATH)
 #STADDKOL=$(echo "$STADD" | jq '$STADD' | length)
 #echo "тест $STADDKOL"
-echo "$STADD"
-declare stmac
-declare stip
-stmac='1'
-stip='1'
+#echo "$STADD"
+#declare stmac
+#declare stip
+#stmac='1'
+#stip='1'
 # Enforces required env variables
 required_vars=(SSID WPA_PASSPHRASE CHANNEL ADDRESS NETMASK BROADCAST)
 for required_var in "${required_vars[@]}"; do
@@ -42,6 +42,9 @@ for required_var in "${required_vars[@]}"; do
     fi
 done
 
+if [[ -n $error ]]; then
+    exit 1
+fi
 
 jq -c '.statics[]' $CONFIG_PATH | while read i; do
 	  stmac="$(echo "$i" | jq '.mac')"
@@ -51,12 +54,6 @@ jq -c '.statics[]' $CONFIG_PATH | while read i; do
 	  echo "Add static IP $stip for $stmac..."
 		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
 done
-
-exit 1
-
-if [[ -n $error ]]; then
-    exit 1
-fi
 
 # Setup hostapd.conf
 echo "Setup hostapd ..."
