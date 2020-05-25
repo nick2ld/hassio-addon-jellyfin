@@ -54,7 +54,7 @@ jq -c '.statics[]' $CONFIG_PATH | while read i; do
 		stip=$(echo "${stip:1:${#stip}-2}")
 		echo "ip - $stip"
 	  echo "Add static IP $stip for $stmac..."
-		echo "dhcp-host=$stmac,$stip"$'\n' >> /etc/dnsmasq.conf
+		echo "dhcp-host=$stmac,$stip,infinite"$'\n' >> /etc/dnsmasq.conf
 done
 
 # Setup hostapd.conf
